@@ -1,0 +1,8 @@
+C:\Users\Anir\Desktop\aop2\Loja\AOP2\obj\Debug\AOP2.csproj.AssemblyReference.cache
+C:\Users\Anir\Desktop\aop2\Loja\AOP2\obj\Debug\AOP2.csproj.SuggestedBindingRedirects.cache
+C:\Users\Anir\Desktop\aop2\Loja\AOP2\obj\Debug\AOP2.csproj.CoreCompileInputs.cache
+C:\Users\Anir\Desktop\aop2\Loja\AOP2\bin\Debug\AOP2.exe.config
+C:\Users\Anir\Desktop\aop2\Loja\AOP2\bin\Debug\AOP2.exe
+C:\Users\Anir\Desktop\aop2\Loja\AOP2\bin\Debug\AOP2.pdb
+C:\Users\Anir\Desktop\aop2\Loja\AOP2\obj\Debug\AOP2.exe
+C:\Users\Anir\Desktop\aop2\Loja\AOP2\obj\Debug\AOP2.pdb
