@@ -37,14 +37,31 @@ namespace AOP2
 
         static void Main()
         {
-            Menu();
+
             // int opcao = int.Parse(Console.ReadLine());
             List<Pedido> lista_pedidos = new List<Pedido>();
 
-            OpcaoMenu(ref lista_pedidos);
+            bool fecharPrograma = false;
+        
+
+            while (true)
+            {
+                Menu();
+                OpcaoMenu(ref lista_pedidos, ref fecharPrograma);
+
+                if(fecharPrograma == true)
+                {
+                    break;
+                }
+
+                Console.WriteLine("\n\n");
+
+            }
+            
 
             //Console.ReadKey();
             //throw new System.NotImplementedException();
+
         }
 
         public static void Menu()
@@ -54,102 +71,76 @@ namespace AOP2
             Console.WriteLine("1 - Criar Pedido");
             Console.WriteLine("2 - Buscar Pedido");
             Console.WriteLine("3 - Remover Pedido");
+            Console.WriteLine("4 - Fechar programa");
             Console.WriteLine();
             Console.WriteLine();
             Console.Write("Opção : ");
             //throw new System.NotImplementedException();
         }
 
-        public static void OpcaoMenu(ref List<Pedido> lista_pedidos)
+        public static void OpcaoMenu(ref List<Pedido> lista_pedidos, ref bool fecharPrograma)
         {
-
             int opcao = int.Parse(Console.ReadLine());
 
-            while (true)
+
+            // CRIAR UM PEDIDO
+            if (opcao == 1)
             {
-                // CRIAR UM PEDIDO
-                if (opcao == 1)
+                // ID PRODUTO
+                Console.Write("Criando um novo pedido.\n\n");
+                Console.Write("Id: ");
+                int id = int.Parse(Console.ReadLine());
+
+                // PREÇO DO PRODUTO
+                Console.Write("Valor do produto: R$ ");
+                double precoProduto = double.Parse(Console.ReadLine());
+
+                // MOMENTO DA CRIAÇÃO DO NOVO PEDIDO
+                Console.WriteLine("Recebendo data e hora da crianção do pedido.");
+                DateTime dataPedido = DateTime.Now;
+                Pedido pedidoTemp = new Pedido(id, dataPedido, precoProduto);
+
+                Console.WriteLine("------------------------------------------\n\n");
+
+                bool descricaoPedido;
+                Console.Write("Deseja criar uma descrição para o pedido.\n" +
+                    "Digite (S para sim) e (N para não) \n[S / N] : ");
+                string respost = Console.ReadLine().ToLower();
+
+                descricaoPedido = respost == "s" ? true : false;
+
+                if (descricaoPedido == true)
                 {
-                    // ID PRODUTO
-                    Console.Write("Criando um novo pedido.\n\n");
-                    Console.Write("Id: ");
-                    int id = int.Parse(Console.ReadLine());
+                    Console.Write("Digite a descrição: ");
+                    string descricao = Console.ReadLine();
 
-                    // PREÇO DO PRODUTO
-                    Console.Write("Valor do produto: R$ ");
-                    double precoProduto = double.Parse(Console.ReadLine());
-
-                    // MOMENTO DA CRIAÇÃO DO NOVO PEDIDO
-                    Console.WriteLine("Recebendo data e hora da crianção do pedido.");
-                    DateTime dataPedido = DateTime.Now;
-                    Pedido pedidoTemp = new Pedido(id, dataPedido, precoProduto);
-
-                    Console.WriteLine("------------------------------------------\n\n");
-
-                    bool descricaoPedido;
-                    Console.Write("Deseja criar uma descrição para o pedido.\n" +
-                        "Digite (S para sim) e (N para não) \n[S / N] : ");
-                    string respost = Console.ReadLine().ToLower();
-
-                    descricaoPedido = respost == "s" ? true : false;
-
-                    if (descricaoPedido == true)
-                    {
-                        Console.Write("Digite a descrição: ");
-                        string descricao = Console.ReadLine();
-
-                        pedidoTemp.DescricaoProduto(descricao);
-                    }
-
-                    lista_pedidos.Add(pedidoTemp);
+                    pedidoTemp.DescricaoProduto(descricao);
                 }
 
-                // Acessar um pedido
-                if (opcao == 2)
-                {
-                    Console.WriteLine("------------------------------------------");
-                    Console.WriteLine("BUSCAR PEDIDO ENTRE COM O ID DO PEDIDO");
-                    Console.Write("ID: ");
-                    int buscarPedido = int.Parse(Console.ReadLine());
+                lista_pedidos.Add(pedidoTemp);
+            }
 
-                    //List<Pedido> pedidoBuscado = lista_pedidos.FindAll(x >= x.pedidoId == buscarPedido);
+            // Acessar um pedido
+            if (opcao == 2)
+            {
+                Console.WriteLine("------------------------------------------");
+                Console.WriteLine("BUSCAR PEDIDO ENTRE COM O ID DO PEDIDO");
+                Console.Write("ID: ");
+                int buscarPedido = int.Parse(Console.ReadLine());
 
-                    Console.Write(lista_pedidos.Find(pedido => pedido.pedidoId == buscarPedido));
+                //List<Pedido> pedidoBuscado = lista_pedidos.FindAll(x >= x.pedidoId == buscarPedido);
 
-                }
-                do
-                {
-                    Console.Write("Escolha uma opção.\n" +
-                    "0 - Voltar ao menu inicial\n" +
-                    "4 - Fechar o sistema\n" +
-                    "Opção: ");
-                    opcao = int.Parse(Console.ReadLine());
-                    if (opcao == 0)
-                    {
-                        Console.WriteLine("\n\n\n\n\n\n");
-                        Menu();
-                        continue;
-                    }
-
-                    if (opcao == 4)
-                    {
-                        Console.WriteLine("Fechando sistema");
-                    }
-
-                    else
-                    {
-                        Console.WriteLine("Opção inválida.");
-
-                    }
-                }
-                while (opcao != 0 || opcao != 4);
-
-                if (opcao == 4)
-                {
-                    break;
-                }
+                Console.Write(lista_pedidos.Find(pedido => pedido.pedidoId == buscarPedido));
 
             }
+
+            if(opcao == 4)
+            {
+                fecharPrograma = true;
+            }
+
+
+
         }
 
         /*public void InserirPedido()
