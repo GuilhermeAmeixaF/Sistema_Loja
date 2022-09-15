@@ -10,31 +10,7 @@ namespace AOP2
     public class Loja
     {
 
-        private List<string> listaPedidos
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Pedido Pedido
-        {
-
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Funcionario Funcionario
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
+    // PRORAMA PRINCIPAL ---------------------------------------------------------
         static void Main()
         {
 
@@ -64,6 +40,7 @@ namespace AOP2
 
         }
 
+        // MÉTODOS DE CONSTRUÇÃO DE LOJA ---------------------------------------------------------
         public static void Menu()
         {
             Console.WriteLine("------------------------------------------");
@@ -140,18 +117,7 @@ namespace AOP2
             }
 
 
-
         }
-
-        /*public void InserirPedido()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RemoverPedido()
-        {
-            throw new System.NotImplementedException();
-        }*/
 
     }
 }
