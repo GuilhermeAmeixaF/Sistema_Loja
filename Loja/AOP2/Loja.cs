@@ -63,19 +63,25 @@ namespace AOP2
             // CRIAR UM PEDIDO
             if (opcao == 1)
             {
+                Console.WriteLine("------------------------------------------\n");
                 // ID PRODUTO
-                Console.Write("Criando um novo pedido.\n\n");
+                Console.Write("Criando um novo pedido.\n");
                 Console.Write("Id: ");
                 int id = int.Parse(Console.ReadLine());
 
+                
                 // PREÇO DO PRODUTO
                 Console.Write("Valor do produto: R$ ");
                 double precoProduto = double.Parse(Console.ReadLine());
 
+                // QUANTIDADE 
+                Console.Write("Unidades do produto: ");
+                int quantidadeProduto = int.Parse(Console.ReadLine());
+
                 // MOMENTO DA CRIAÇÃO DO NOVO PEDIDO
                 Console.WriteLine("Recebendo data e hora da crianção do pedido.");
                 DateTime dataPedido = DateTime.Now;
-                Pedido pedidoTemp = new Pedido(id, dataPedido, precoProduto);
+                Pedido pedidoTemp = new Pedido(id, dataPedido, precoProduto, quantidadeProduto);
 
                 Console.WriteLine("------------------------------------------\n\n");
 
@@ -91,7 +97,7 @@ namespace AOP2
                     Console.Write("Digite a descrição: ");
                     string descricao = Console.ReadLine();
 
-                    pedidoTemp.DescricaoProduto(descricao);
+                    pedidoTemp.DescricaoProduto = descricao;
                 }
 
                 lista_pedidos.Add(pedidoTemp);
@@ -107,7 +113,8 @@ namespace AOP2
 
                 //List<Pedido> pedidoBuscado = lista_pedidos.FindAll(x >= x.pedidoId == buscarPedido);
 
-                Console.Write(lista_pedidos.Find(pedido => pedido.pedidoId == buscarPedido));
+                Pedido pedidoAtual = lista_pedidos.Find(pedido => pedido.PedidoID == buscarPedido);
+                Console.WriteLine("\n\nDADOS DO PEDIDO :" + pedidoAtual);
 
             }
 

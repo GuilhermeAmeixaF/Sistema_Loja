@@ -1,20 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
-  <Class Name="AOP2.Loja">
-    <Position X="2" Y="1.25" Width="3.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAAAEAAAAAAAAAAQAIEAAEAAAABAAAAAA=</HashCode>
-      <FileName>Loja.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Pedido" />
-      <Property Name="Funcionario" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="AOP2.Pedido">
     <Position X="3" Y="4.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAIAAAAAAAAAAAAAAAAAAJAAAAAAAAAIAAA=</HashCode>
+      <HashCode>AAAAAAAAAAIAAAEEAAAAAAAAAEAAAJAAACAAUAAIQAA=</HashCode>
       <FileName>Pedido.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -37,6 +26,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>Estagiario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOP2.Loja">
+    <Position X="2" Y="1.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAAAAABAAAAAA=</HashCode>
+      <FileName>Loja.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

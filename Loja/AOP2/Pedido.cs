@@ -9,10 +9,11 @@ namespace AOP2
     {
         #region PROPRIEDADES DE PEDIDO
 
-        public int pedidoId;
-        DateTime DataEmissao = DateTime.Now;
-        double valorDoProduto;
-        string _descricaoDoProduto = "Produto atualmente sem descrição";
+        private int pedidoId;
+        private DateTime dataEmissao = DateTime.Now;
+        private double valorDoProduto;
+        public string _descricaoDoProduto = "Produto atualmente sem descrição";
+        public int quantidadeProduto = 1;
         double _precototal;
 
         #endregion
@@ -22,24 +23,65 @@ namespace AOP2
         public Pedido(int pedidoid, DateTime dataemissao, double valor)
         {
             this.pedidoId = pedidoid;
-            this.DataEmissao = dataemissao;
+            this.dataEmissao = dataemissao;
             this.valorDoProduto = valor;
-            
+        }
+
+        public Pedido(int pedidoid, DateTime dataemissao, double valor, int quantidadeProduto) : this(pedidoid, dataemissao, valor)
+        {
+            this.quantidadeProduto = quantidadeProduto;
         }
         #endregion
 
         #region MÉTODOS
-        public void DescricaoProduto(string descricao)
+     
+        public double CalcularPrecoTotal()
         {
-            this._descricaoDoProduto = descricao;
+            return valorDoProduto * quantidadeProduto;
         }
 
-        public double CalcularPrecoTotal(int quantidade)
+        // --- PROPERTIES
+        public int PedidoID
         {
-            double total = valorDoProduto * quantidade;
-            return total  ;
+            get { return pedidoId; }
+        }
+
+        public DateTime DataEmicao
+        {
+            get { return dataEmissao; }
         }
         #endregion
+
+        public double ValorProduto
+        {
+            get { return valorDoProduto; }
+
+            set { valorDoProduto = value; }
+        }
+
+        public string DescricaoProduto
+        {
+            get { return _descricaoDoProduto; }
+
+            set
+            {
+                if(value != null && value.Length >= 7)
+                {
+                    _descricaoDoProduto = value;
+                }
+            }
+        }
+
+        // FORMATO STRING DO OBJETO PEDIDO
+
+        public override string ToString()
+        {
+            return "ID: " + PedidoID +
+                "\nValor : R$ " + ValorProduto.ToString("F2") +
+                "\n\nQuantidade de produto(s) no pedido: " + quantidadeProduto +
+                "\nValor total do pedido: R$ " + CalcularPrecoTotal().ToString("F2") 
+                + "\nData de criação do pedido: " + DataEmicao;
+        }
 
     }
 }
