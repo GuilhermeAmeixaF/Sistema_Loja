@@ -7,9 +7,10 @@ namespace AOP2
 {
     public class Estagiario : Funcionario
     {
-        public void CalcularDescontoMenor()
+        float CalcularDescontoMenor(float valorProduto, float descontoPercentual)
         {
-            throw new System.NotImplementedException();
+            float valorComDesconto = valorProduto - (valorProduto * descontoPercentual / 100);
+            return valorComDesconto;
         }
     }
 }

@@ -1,39 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
   <Class Name="AOP2.Pedido">
-    <Position X="3" Y="4.75" Width="1.75" />
+    <Position X="1.5" Y="3.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAAEEAAAAAAAAAEAAAJAAACAAUAAIQAA=</HashCode>
       <FileName>Pedido.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AOP2.Funcionario">
-    <Position X="7.25" Y="2.5" Width="1.5" />
+    <Position X="7.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Funcionario.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AOP2.Gerente">
-    <Position X="9.5" Y="1.25" Width="2.25" />
+    <Position X="10" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Gerente.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AOP2.Estagiario">
-    <Position X="9.5" Y="3.25" Width="2.5" />
+    <Position X="10" Y="2.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>Estagiario.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AOP2.Loja">
-    <Position X="2" Y="1.25" Width="3.75" />
+    <Position X="0.75" Y="0.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAAAEAAAAAAAAAAAAIQAAAAAAABAAAAAA=</HashCode>
       <FileName>Loja.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pedido" />
+      <Property Name="Funcionario" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

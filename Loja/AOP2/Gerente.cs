@@ -7,17 +7,13 @@ namespace AOP2
 {
     public class Gerente : Funcionario
     {
-        private string senha
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string senha;
 
-        public void CalcularDescontoMaior()
+        // MÉTODOS 
+        float CalcularDescontoMaior(float valorProduto, float descontoPercentual)
         {
-            throw new System.NotImplementedException();
+            float valorComDesconto = valorProduto - (valorProduto * descontoPercentual / 100);
+            return valorComDesconto;
         }
     }
 }

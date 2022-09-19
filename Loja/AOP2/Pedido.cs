@@ -17,8 +17,7 @@ namespace AOP2
         double _precototal;
 
         #endregion
-
-
+       
         #region CONSTRUTOR
         public Pedido(int pedidoid, DateTime dataemissao, double valor)
         {
@@ -33,8 +32,9 @@ namespace AOP2
         }
         #endregion
 
+
         #region MÉTODOS
-     
+
         public double CalcularPrecoTotal()
         {
             return valorDoProduto * quantidadeProduto;

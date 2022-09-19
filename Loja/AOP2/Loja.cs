@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -9,8 +10,23 @@ namespace AOP2
 {
     public class Loja
     {
+        public Pedido Pedido
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
-    // PRORAMA PRINCIPAL ---------------------------------------------------------
+        public Funcionario Funcionario
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        // PRORAMA PRINCIPAL ---------------------------------------------------------
         static void Main()
         {
 
@@ -18,14 +34,14 @@ namespace AOP2
             List<Pedido> lista_pedidos = new List<Pedido>();
 
             bool fecharPrograma = false;
-        
+
 
             while (true)
             {
                 Menu();
                 OpcaoMenu(ref lista_pedidos, ref fecharPrograma);
 
-                if(fecharPrograma == true)
+                if (fecharPrograma == true)
                 {
                     break;
                 }
@@ -33,15 +49,12 @@ namespace AOP2
                 Console.WriteLine("\n\n");
 
             }
-            
-
-            //Console.ReadKey();
-            //throw new System.NotImplementedException();
 
         }
 
+        // -------------------------------- MÉTODOS  -------------------------------- 
         // MÉTODOS DE CONSTRUÇÃO DE LOJA ---------------------------------------------------------
-        public static void Menu()
+        public static void Menu() // CONSTRUÇÃO DO MENU
         {
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Digite o número da operação, que deseja realizar.");
@@ -52,24 +65,26 @@ namespace AOP2
             Console.WriteLine();
             Console.WriteLine();
             Console.Write("Opção : ");
-            //throw new System.NotImplementedException();
+
         }
 
+        // MÉTODO QUE APLICA A LÓGICA A EXECUTAR, AO ESCOLHER CADA OPÇÃO DO MENU
         public static void OpcaoMenu(ref List<Pedido> lista_pedidos, ref bool fecharPrograma)
         {
             int opcao = int.Parse(Console.ReadLine());
+            Console.WriteLine("--------------------------------------------------");
 
 
-            // CRIAR UM PEDIDO
+            // CRIAR UM PEDIDO ------------------------------------------------------------------
             if (opcao == 1)
             {
-                Console.WriteLine("------------------------------------------\n");
+
                 // ID PRODUTO
                 Console.Write("Criando um novo pedido.\n");
                 Console.Write("Id: ");
                 int id = int.Parse(Console.ReadLine());
 
-                
+
                 // PREÇO DO PRODUTO
                 Console.Write("Valor do produto: R$ ");
                 double precoProduto = double.Parse(Console.ReadLine());
@@ -82,8 +97,6 @@ namespace AOP2
                 Console.WriteLine("Recebendo data e hora da crianção do pedido.");
                 DateTime dataPedido = DateTime.Now;
                 Pedido pedidoTemp = new Pedido(id, dataPedido, precoProduto, quantidadeProduto);
-
-                Console.WriteLine("------------------------------------------\n\n");
 
                 bool descricaoPedido;
                 Console.Write("Deseja criar uma descrição para o pedido.\n" +
@@ -106,7 +119,7 @@ namespace AOP2
             // Acessar um pedido
             if (opcao == 2)
             {
-                Console.WriteLine("------------------------------------------");
+               
                 Console.WriteLine("BUSCAR PEDIDO ENTRE COM O ID DO PEDIDO");
                 Console.Write("ID: ");
                 int buscarPedido = int.Parse(Console.ReadLine());
@@ -117,12 +130,28 @@ namespace AOP2
                 Console.WriteLine("\n\nDADOS DO PEDIDO :" + pedidoAtual);
 
             }
+            if(opcao == 3)
+            {
+                Console.Write("Id :");
+                int produto = int.Parse(Console.ReadLine()); // produto a ser removido
 
-            if(opcao == 4)
+                Console.WriteLine("------------------- PEDIDO REMOVIDO ------------------- \n" 
+                    + lista_pedidos.Find(pedido => pedido.PedidoID == produto));
+
+                lista_pedidos.Remove(lista_pedidos.Find(pedido => pedido.PedidoID == produto));
+
+
+            }
+            if (opcao == 4)
             {
                 fecharPrograma = true;
             }
 
+            else
+            {
+                Console.WriteLine("Opção inválida. Escolha uma opção disponível");
+            }
+            Console.WriteLine("--------------------------------------------------");
 
         }
 
